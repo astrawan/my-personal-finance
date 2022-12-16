@@ -1,0 +1,8 @@
+{
+    "$schema": "https://json.schemastore.org/prettierrc.json",
+    "endOfLine": "auto",
+    "parser": "typescript",
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": false
+}

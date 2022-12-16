@@ -1,7 +1,9 @@
 node_modules/
 .expo/
+.log/
 dist/
 npm-debug.*
+.eslintcache
 *.jks
 *.p8
 *.p12
