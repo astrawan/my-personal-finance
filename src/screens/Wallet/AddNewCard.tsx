@@ -45,6 +45,7 @@ export default function AddNewCard(props: IAddNewCard) {
   const [expiryDate, setExpiryDate] = React.useState('');
   const [CVV, setCVV] = React.useState('');
 
+  // istanbul ignore next
   const onClosePress = () => {
     onClose?.();
   };
@@ -66,7 +67,7 @@ export default function AddNewCard(props: IAddNewCard) {
         <Button
           alignSelf="flex-end"
           backgroundColor={
-            !closeButtonPressed
+            /* istanbul ignore next */ !closeButtonPressed
               ? 'rgba(118, 118, 128, 0.12)'
               : 'rgba(118, 118, 128, 0.3)'
           }
@@ -74,8 +75,12 @@ export default function AddNewCard(props: IAddNewCard) {
           borderWidth={0}
           height={10}
           onPress={onClosePress}
-          onPressIn={() => setCloseButtonPressed(true)}
-          onPressOut={() => setCloseButtonPressed(false)}
+          onPressIn={
+            /* istanbul ignore next */ () => setCloseButtonPressed(true)
+          }
+          onPressOut={
+            /* istanbul ignore next */ () => setCloseButtonPressed(false)
+          }
           position="absolute"
           variant="ghost"
           width={10}

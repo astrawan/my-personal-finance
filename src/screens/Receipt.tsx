@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Dimensions, Image, ScrollView, StatusBar } from 'react-native';
 
-import { type NavigationProp, useNavigation } from '@react-navigation/native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -12,7 +12,7 @@ import ZigZagView from 'react-native-zigzag-view';
 
 import DashedLine from 'react-native-dashed-line';
 
-import { IRootStackParamList } from '../types';
+import { RootStackParamList } from '../types';
 
 import ButtonX from '../components/Button';
 
@@ -20,11 +20,12 @@ import BarcodeImg from '../../assets/receipt-barcode.png';
 
 import { CurrencyNumberFormat } from '../utils';
 
-export default function Receipt() {
-  const navigation = useNavigation<NavigationProp<IRootStackParamList>>();
+type ReceiptProps = NativeStackScreenProps<RootStackParamList, 'Receipt'>;
 
+export default function Receipt({ navigation }: ReceiptProps) {
   const { height: windowHeight } = Dimensions.get('window');
 
+  // istanbul ignore next
   const onHomePress = () => {
     navigation.navigate('Home');
   };

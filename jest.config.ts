@@ -20,7 +20,20 @@ const untranspiledModulePatterns = [
 ];
 
 const config: Config.InitialOptions = {
-  preset: 'jest-expo',
+  projects: [
+    {
+      preset: 'jest-expo/android',
+      setupFiles: ['<rootDir>/jest.setup.ts'],
+    },
+    {
+      preset: 'jest-expo/ios',
+      setupFiles: ['<rootDir>/jest.setup.ts'],
+    },
+  ],
+  testMatch: [
+    '**/__tests__/**/*[.-]test.[jt]s?(x)',
+    '**/?(*.)+(spec|test).[jt]s?(x)',
+  ],
   transformIgnorePatterns: [
     `node_modules/(?!${untranspiledModulePatterns.join('|')})`,
   ],

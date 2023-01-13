@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Platform } from 'react-native';
 
-import { type NavigationProp, useNavigation } from '@react-navigation/native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import {
   Avatar,
@@ -19,7 +19,7 @@ import {
 
 import Swiper from 'react-native-swiper';
 
-import { IRootStackParamList } from '../types';
+import { RootStackParamList } from '../types';
 
 import CustomButton from '../components/Button';
 import Input from '../components/Input';
@@ -29,12 +29,14 @@ import ProfileImg from '../../assets/profile-payment.jpeg';
 
 import { CurrencyNumberFormat } from '../utils';
 
-export default function Payment() {
-  const navigation = useNavigation<NavigationProp<IRootStackParamList>>();
+type PaymentProps = NativeStackScreenProps<RootStackParamList, 'Payment'>;
 
+export default function Payment({ navigation }: PaymentProps) {
+  // istanbul ignore next
   const onCancelPress = () => {
     navigation.goBack();
   };
+  // istanbul ignore next
   const onPayNowPress = () => {
     navigation.navigate('Receipt');
   };

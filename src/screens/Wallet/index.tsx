@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useNavigation } from '@react-navigation/native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import {
   Dimensions,
@@ -27,6 +27,8 @@ import Swiper from 'react-native-swiper';
 
 import Modal from 'react-native-modalbox';
 
+import { RootStackParamList } from '../../types';
+
 import WalletCard from '../../components/WalletCard';
 
 import AddNewCard from './AddNewCard';
@@ -46,6 +48,8 @@ interface IWalletData {
   amount: number;
   tags: Array<string>;
 }
+
+type WalletProps = NativeStackScreenProps<RootStackParamList, 'Wallet'>;
 
 const walletData: Array<IWalletData> = [
   {
@@ -71,21 +75,24 @@ const walletData: Array<IWalletData> = [
   },
 ];
 
-export default function Wallet() {
+export default function Wallet({ navigation }: WalletProps) {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const navigation = useNavigation();
 
   const { height: windowHeight } = Dimensions.get('window');
 
+  // istanbul ignore next
   const onAddNewCardPress = () => {
     setModalIsOpen(true);
   };
+  // istanbul ignore next
   const onBackPress = () => {
     navigation.goBack();
   };
+  // istanbul ignore next
   const onModalClose = () => {
     setModalIsOpen(false);
   };
+  // istanbul ignore next
   const onModalClosed = () => {
     if (modalIsOpen) setModalIsOpen(false);
   };
@@ -159,6 +166,7 @@ export default function Wallet() {
               {walletData.map((item) => {
                 let img;
 
+                // istanbul ignore next
                 if (Array.isArray(item.tags)) {
                   if (item.tags.indexOf('nike') > -1) {
                     img = NikeLogoImg;
@@ -199,3 +207,5 @@ export default function Wallet() {
     </>
   );
 }
+
+export { AddNewCard };

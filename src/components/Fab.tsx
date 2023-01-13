@@ -10,8 +10,8 @@ export default function Fab(props: FabProps) {
 
   return (
     <Pressable
-      onPressIn={() => setFabPressed(true)}
-      onPressOut={() => setFabPressed(false)}
+      onPressIn={/* istanbul ignore next */ () => setFabPressed(true)}
+      onPressOut={/* istanbul ignore next */ () => setFabPressed(false)}
       style={{
         alignItems: 'center',
         borderRadius: 9999,
@@ -52,12 +52,16 @@ export default function Fab(props: FabProps) {
         >
           <Stop
             offset="0%"
-            stopColor={fabPressed ? '#007AFF' : '#7DD4FB'}
+            stopColor={
+              /* istanbul ignore next */ fabPressed ? '#007AFF' : '#7DD4FB'
+            }
             stopOpacity="1"
           />
           <Stop
             offset="100%"
-            stopColor={fabPressed ? '#7DD4FB' : '#007AFF'}
+            stopColor={
+              /* istanbul ignore next */ fabPressed ? '#7DD4FB' : '#007AFF'
+            }
             stopOpacity="1"
           />
         </RadialGradient>

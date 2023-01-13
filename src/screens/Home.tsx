@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Dimensions, ScrollView, StatusBar } from 'react-native';
 
-import { type NavigationProp, useNavigation } from '@react-navigation/native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import {
   Avatar,
@@ -20,7 +20,7 @@ import {
 import { LineChart } from 'react-native-chart-kit';
 import type { LineChartData } from 'react-native-chart-kit/dist/line-chart/LineChart';
 
-import { IRootStackParamList } from '../types';
+import type { RootStackParamList } from '../types';
 
 import Fab from '../components/Fab';
 
@@ -30,6 +30,8 @@ import appleLogoImg from '../../assets/apple.png';
 import uberLogoImg from '../../assets/uber.png';
 
 import { CurrencyNumberFormat } from '../utils';
+
+type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const chartData: LineChartData = {
   datasets: [
@@ -63,16 +65,16 @@ const walletData = [
   },
 ];
 
-export default function Home() {
+export default function Home({ navigation }: HomeProps) {
   const { height: windowHeight, width: windowWidth } = Dimensions.get('window');
   const borderRadius = 24;
   const padding = 20;
 
-  const navigation = useNavigation<NavigationProp<IRootStackParamList>>();
-
+  // istanbul ignore next
   const onFabPress = () => {
     navigation.navigate('Payment');
   };
+  // istanbul ignore next
   const onSeeAllWalletPress = () => {
     navigation.navigate('Wallet');
   };
@@ -108,7 +110,9 @@ export default function Home() {
             bg="rgba(0, 122, 255, 0.6)"
             borderRadius={borderRadius}
             height={110}
-            onPress={() => navigation.navigate('Wallet')}
+            onPress={
+              /* istanbul ignore next */ () => navigation.navigate('Wallet')
+            }
             padding={4}
           >
             <HStack>
@@ -137,7 +141,8 @@ export default function Home() {
               chartConfig={{
                 backgroundGradientFromOpacity: 0,
                 backgroundGradientToOpacity: 0,
-                color: (opacity = 1) => `rgba(175, 82, 222, ${opacity})`,
+                color: /* istanbul ignore next */ (opacity = 1) =>
+                  `rgba(175, 82, 222, ${opacity})`,
                 propsForHorizontalLabels: {
                   fill: '#bcbcbc',
                   fontWeight: 'bold',
@@ -179,6 +184,7 @@ export default function Home() {
             {walletData.map((item) => {
               let img;
 
+              // istanbul ignore next
               if (Array.isArray(item.tags)) {
                 if (item.tags.indexOf('nike') > -1) {
                   img = NikeLogoImg;

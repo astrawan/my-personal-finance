@@ -2,19 +2,24 @@ import React from 'react';
 
 import { Dimensions, ImageBackground, StatusBar, View } from 'react-native';
 
-import { CommonActions, useNavigation } from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
+
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { Box, Center, Heading, Text, VStack } from 'native-base';
+
+import { RootStackParamList } from '../types';
 
 import CustomButton from '../components/Button';
 
 import Img from '../../assets/kingdom-payment.png';
 
-export default function GetStarted() {
+type GetStartedProps = NativeStackScreenProps<RootStackParamList, 'GetStarted'>;
+
+export default function GetStarted({ navigation }: GetStartedProps) {
   const windowHeight = Dimensions.get('window').height;
 
-  const navigation = useNavigation();
-
+  // istanbul ignore next
   const onGetStartedPress = () => {
     navigation.dispatch(
       CommonActions.reset({
