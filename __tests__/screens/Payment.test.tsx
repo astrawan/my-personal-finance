@@ -6,8 +6,6 @@ import Screen from '../../src/screens/Payment';
 
 import Wrapper from '../Wrapper';
 
-jest.useFakeTimers();
-
 const navigation = {
   navigate: jest.fn(),
 };
