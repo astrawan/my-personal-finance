@@ -1,0 +1,564 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Root /> renders correctly 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    options={
+      Object {
+        "accessibleColors": false,
+        "initialColorMode": "light",
+        "useSystemColorMode": false,
+      }
+    }
+  >
+    <View
+      dataSet={Object {}}
+      style={
+        Object {
+          "flex": 1,
+          "width": "100%",
+        }
+      }
+    >
+      <RNGestureHandlerRootView
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "rgb(242, 242, 242)",
+                  "flex": 1,
+                },
+                undefined,
+              ]
+            }
+          >
+            <RNSScreenContainer
+              onLayout={[Function]}
+              style={
+                Object {
+                  "flex": 1,
+                }
+              }
+            >
+              <RNSScreen
+                activityState={2}
+                collapsable={false}
+                forwardedRef={[Function]}
+                gestureResponseDistance={
+                  Object {
+                    "bottom": -1,
+                    "end": -1,
+                    "start": -1,
+                    "top": -1,
+                  }
+                }
+                pointerEvents="box-none"
+                style={
+                  Object {
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              >
+                <View
+                  collapsable={false}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                />
+                <View
+                  accessibilityElementsHidden={false}
+                  closing={false}
+                  gestureVelocityImpact={0.3}
+                  importantForAccessibility="auto"
+                  onClose={[Function]}
+                  onGestureBegin={[Function]}
+                  onGestureCanceled={[Function]}
+                  onGestureEnd={[Function]}
+                  onOpen={[Function]}
+                  onTransition={[Function]}
+                  pointerEvents="box-none"
+                  style={
+                    Array [
+                      Object {
+                        "display": "flex",
+                        "overflow": undefined,
+                      },
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                    ]
+                  }
+                  transitionSpec={
+                    Object {
+                      "close": Object {
+                        "animation": "timing",
+                        "config": Object {
+                          "duration": 150,
+                          "easing": [Function],
+                        },
+                      },
+                      "open": Object {
+                        "animation": "timing",
+                        "config": Object {
+                          "duration": 350,
+                          "easing": [Function],
+                        },
+                      },
+                    }
+                  }
+                >
+                  <View
+                    pointerEvents="box-none"
+                    style={
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      }
+                    }
+                  />
+                  <View
+                    collapsable={false}
+                    pointerEvents="box-none"
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <View
+                      collapsable={false}
+                      forwardedRef={[Function]}
+                      handlerTag={1}
+                      handlerType="PanGestureHandler"
+                      needsOffscreenAlphaCompositing={true}
+                      onGestureHandlerEvent={[Function]}
+                      onGestureHandlerStateChange={[Function]}
+                      style={
+                        Object {
+                          "flex": 1,
+                          "opacity": 1,
+                          "transform": Array [
+                            Object {
+                              "translateY": 0,
+                            },
+                          ],
+                        }
+                      }
+                    >
+                      <View
+                        pointerEvents="box-none"
+                        style={
+                          Array [
+                            Object {
+                              "flex": 1,
+                              "overflow": "hidden",
+                            },
+                            Array [
+                              Object {
+                                "backgroundColor": "rgb(242, 242, 242)",
+                              },
+                              Object {
+                                "backgroundColor": "white",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        <View
+                          style={
+                            Object {
+                              "flex": 1,
+                              "flexDirection": "column-reverse",
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              Object {
+                                "flex": 1,
+                              }
+                            }
+                          >
+                            <View
+                              dataSet={Object {}}
+                              style={Object {}}
+                            >
+                              <View
+                                dataSet={Object {}}
+                                style={Object {}}
+                              />
+                              <View
+                                dataSet={Object {}}
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "#F7EEFC",
+                                    "display": "flex",
+                                    "height": 667,
+                                    "justifyContent": "center",
+                                  }
+                                }
+                              >
+                                <View
+                                  accessibilityIgnoresInvertColors={true}
+                                  style={
+                                    Object {
+                                      "height": 667,
+                                      "width": "100%",
+                                    }
+                                  }
+                                >
+                                  <Image
+                                    resizeMethod="auto"
+                                    source={1}
+                                    style={
+                                      Array [
+                                        Object {
+                                          "bottom": 0,
+                                          "left": 0,
+                                          "position": "absolute",
+                                          "right": 0,
+                                          "top": 0,
+                                        },
+                                        Object {
+                                          "height": 667,
+                                          "width": "100%",
+                                        },
+                                        undefined,
+                                      ]
+                                    }
+                                  />
+                                </View>
+                              </View>
+                              <View
+                                dataSet={Object {}}
+                                style={Object {}}
+                              />
+                              <View
+                                style={
+                                  Object {
+                                    "backgroundColor": "white",
+                                    "height": 80,
+                                    "marginRight": -40,
+                                    "marginTop": -40,
+                                    "zIndex": -1,
+                                  }
+                                }
+                              >
+                                <View
+                                  style={
+                                    Object {
+                                      "backgroundColor": "#F7EEFC",
+                                      "borderRadius": 40,
+                                      "height": 80,
+                                    }
+                                  }
+                                />
+                              </View>
+                              <View
+                                dataSet={Object {}}
+                                style={Object {}}
+                              />
+                              <View
+                                style={
+                                  Object {
+                                    "backgroundColor": "#F7EEFC",
+                                    "height": 80,
+                                    "marginBottom": -40,
+                                    "marginLeft": -40,
+                                  }
+                                }
+                              >
+                                <View
+                                  style={
+                                    Object {
+                                      "backgroundColor": "white",
+                                      "borderRadius": 40,
+                                      "height": 80,
+                                    }
+                                  }
+                                />
+                              </View>
+                              <View
+                                dataSet={Object {}}
+                                style={Object {}}
+                              />
+                              <View
+                                dataSet={Object {}}
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "#FFFFFF",
+                                    "display": "flex",
+                                    "height": 547,
+                                    "justifyContent": "center",
+                                    "paddingLeft": 8,
+                                    "paddingRight": 8,
+                                  }
+                                }
+                              >
+                                <View
+                                  dataSet={Object {}}
+                                  style={Object {}}
+                                >
+                                  <View
+                                    dataSet={Object {}}
+                                    style={
+                                      Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "center",
+                                      }
+                                    }
+                                  >
+                                    <Text
+                                      dataSet={Object {}}
+                                      style={
+                                        Object {
+                                          "backgroundColor": undefined,
+                                          "color": "#171717",
+                                          "fontFamily": undefined,
+                                          "fontSize": 36,
+                                          "fontStyle": "normal",
+                                          "fontWeight": "700",
+                                          "letterSpacing": 0,
+                                          "lineHeight": 45,
+                                          "textDecorationLine": undefined,
+                                        }
+                                      }
+                                    >
+                                      EXPENIO
+                                    </Text>
+                                  </View>
+                                  <View
+                                    dataSet={Object {}}
+                                    style={Object {}}
+                                  />
+                                  <View
+                                    dataSet={Object {}}
+                                    style={
+                                      Object {
+                                        "flex": 1,
+                                        "paddingTop": 20,
+                                      }
+                                    }
+                                  >
+                                    <Text
+                                      dataSet={Object {}}
+                                      style={
+                                        Object {
+                                          "backgroundColor": undefined,
+                                          "color": "#AEAEB2",
+                                          "fontFamily": undefined,
+                                          "fontSize": 14,
+                                          "fontStyle": "normal",
+                                          "fontWeight": "400",
+                                          "letterSpacing": 0,
+                                          "lineHeight": 21,
+                                          "textAlign": "center",
+                                          "textDecorationLine": undefined,
+                                        }
+                                      }
+                                    >
+                                      Going cashless has never been this easier with the world’s most leading expense manager.
+                                    </Text>
+                                  </View>
+                                  <View
+                                    dataSet={Object {}}
+                                    style={Object {}}
+                                  />
+                                  <View
+                                    dataSet={Object {}}
+                                    style={
+                                      Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "center",
+                                      }
+                                    }
+                                  >
+                                    <View
+                                      style={
+                                        Object {
+                                          "borderRadius": 14,
+                                          "width": "100%",
+                                        }
+                                      }
+                                    >
+                                      <ViewManagerAdapter_ExpoLinearGradient
+                                        borderRadii={
+                                          Array [
+                                            14,
+                                            14,
+                                            14,
+                                            14,
+                                            14,
+                                            14,
+                                            14,
+                                            14,
+                                          ]
+                                        }
+                                        proxiedProperties={
+                                          Object {
+                                            "colors": Array [
+                                              -15552264,
+                                              -16745729,
+                                            ],
+                                            "endPoint": undefined,
+                                            "locations": undefined,
+                                            "startPoint": undefined,
+                                          }
+                                        }
+                                        style={
+                                          Object {
+                                            "bottom": 0,
+                                            "left": 0,
+                                            "position": "absolute",
+                                            "right": 0,
+                                            "top": 0,
+                                          }
+                                        }
+                                      />
+                                      <View
+                                        accessibilityRole="button"
+                                        accessible={true}
+                                        collapsable={false}
+                                        colorScheme="primary"
+                                        dataSet={Object {}}
+                                        focusable={true}
+                                        onBlur={[Function]}
+                                        onClick={[Function]}
+                                        onFocus={[Function]}
+                                        onResponderGrant={[Function]}
+                                        onResponderMove={[Function]}
+                                        onResponderRelease={[Function]}
+                                        onResponderTerminate={[Function]}
+                                        onResponderTerminationRequest={[Function]}
+                                        onStartShouldSetResponder={[Function]}
+                                        style={
+                                          Object {
+                                            "alignItems": "center",
+                                            "borderRadius": 4,
+                                            "flexDirection": "row",
+                                            "height": 58,
+                                            "justifyContent": "center",
+                                            "paddingBottom": 10,
+                                            "paddingLeft": 12,
+                                            "paddingRight": 12,
+                                            "paddingTop": 10,
+                                          }
+                                        }
+                                      >
+                                        <View
+                                          dataSet={Object {}}
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "flexDirection": "row",
+                                            }
+                                          }
+                                          test={true}
+                                        >
+                                          <View
+                                            dataSet={Object {}}
+                                            style={Object {}}
+                                          >
+                                            <Text
+                                              dataSet={Object {}}
+                                              style={
+                                                Object {
+                                                  "backgroundColor": undefined,
+                                                  "color": "#FFFFFF",
+                                                  "fontFamily": undefined,
+                                                  "fontSize": 14,
+                                                  "fontStyle": "normal",
+                                                  "fontWeight": "400",
+                                                  "letterSpacing": 0,
+                                                  "lineHeight": 21,
+                                                  "textDecorationLine": undefined,
+                                                }
+                                              }
+                                            >
+                                              Get Started
+                                            </Text>
+                                          </View>
+                                        </View>
+                                      </View>
+                                    </View>
+                                  </View>
+                                </View>
+                              </View>
+                            </View>
+                          </View>
+                          <View
+                            collapsable={false}
+                            pointerEvents="box-none"
+                            style={Object {}}
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </RNSScreen>
+            </RNSScreenContainer>
+            <View
+              collapsable={false}
+              pointerEvents="box-none"
+              style={
+                Object {
+                  "height": 56,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "zIndex": 1,
+                }
+              }
+            />
+          </View>
+        </View>
+      </RNGestureHandlerRootView>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
