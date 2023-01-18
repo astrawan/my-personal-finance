@@ -65,7 +65,7 @@
         },
         "ecmaVersion": 2021,
         "sourceType": "module",
-        "project": "./tsconfig.test.json"
+        "project": "./tsconfig.json"
       },
       "rules": {
         "@typescript-eslint/ban-ts-comment": "off",
@@ -82,7 +82,7 @@
         },
         "ecmaVersion": 2021,
         "sourceType": "module",
-        "project": "./tsconfig.config.json"
+        "project": "./tsconfig.json"
       },
       "rules": {
         "import/no-extraneous-dependencies": "off",
