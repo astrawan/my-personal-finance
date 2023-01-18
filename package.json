@@ -9,7 +9,8 @@
     "start": "expo start",
     "test": "npm run type-check && jest",
     "type-check": "tsc --noEmit",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -54,11 +55,13 @@
     "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
+    "ejs": "^3.1.8",
     "eslint": "^8.29.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
     "jest": "^26.6.3",
     "jest-expo": "^47.0.1",
     "prettier": "^2.8.1",

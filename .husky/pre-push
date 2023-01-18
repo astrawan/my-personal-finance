@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+. "$(dirname -- "$0")/_/husky.sh"
+
+. "$(dirname -- "$0")/scripts/setup.sh"
+
+if [ "$PROJECT_README_UPTODATE" -eq 0 ];
+then
+  echo "{\"branch\":\"$PROJECT_BRANCH\",\"template_checksum\":\"$PROJECT_README_CHECKSUM\"}" | npx ejs \
+    -o "$PROJECT_DIR/README.md" \
+    "$PROJECT_DIR/templates/README.ejs" && \
+    git add "$PROJECT_DIR/README.md" && \
+    git commit -m 'Re-generate README.md'
+  echo "New README.md file generated for branch '$PROJECT_BRANCH'"
+  exit 1
+fi
