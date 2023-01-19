@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: main
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check for CODACY_PROJECT_TOKEN
+        run: |
+            if [ -z "${{ secrets.CODACY_PROJECT_TOKEN }}" ]; then
+              echo "You must provide an CODACY_PROJECT_TOKEN secret linked to this project. Learn more: https://docs.codacy.com/coverage-reporter/alternative-ways-of-running-coverage-reporter"
+              exit 1
+            fi
+
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm ci --ignore-scripts
+
+      - name: setup expo
+        uses: expo/expo-github-action@v7
+        with:
+          # WARNING: don't use latest version of expo or eas
+          expo-version: 6.1.0
+          eas-version: 3.3.2
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: test
+        run: npm test -- --coverage
+
+      - name: codacy coverage reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          # or
+          # api-token: ${{ secrets.CODACY_API_TOKEN }}
+          coverage-reports: ./coverage/lcov.info
+          # or a comma-separated list for multiple reports
+          # coverage-reports: <PATH_TO_REPORT>, <PATH_TO_REPORT>

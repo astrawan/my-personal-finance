@@ -20,7 +20,7 @@ const untranspiledModulePatterns = [
 ];
 
 const config: Config.InitialOptions = {
-  coverageReporters: ['json', 'json-summary'],
+  coverageReporters: ['json', 'json-summary', 'lcov'],
   projects: [
     {
       preset: 'jest-expo/android',

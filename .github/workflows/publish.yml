@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: publish
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    uses: astrawan/my-personal-finance/.github/workflows/reusable-test.yml@main
+    secrets: inherit
+
+  publish:
+    runs-on: ubuntu-latest
+    environment: 'eas-update'
+    needs: [test]
+
+    steps:
+      - name: check for EXPO_TOKEN
+        run: |
+            if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+              echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets. Learn more: https://docs.expo.dev/eas-update/github-actions"
+              exit 1
+            fi
+
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm ci --ignore-scripts
+
+      - name: setup expo
+        uses: expo/expo-github-action@v7
+        with:
+          # WARNING: don't use latest version of expo or eas
+          expo-version: 6.1.0
+          eas-version: 3.3.2
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: publish update
+        run: eas update --auto --non-interactive
