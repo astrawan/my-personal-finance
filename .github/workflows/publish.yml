@@ -7,6 +7,11 @@ on:
       - "*"
   pull_request:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      republish:
+        description: rollback group id
+        required: true
 
 permissions:
   contents: write
@@ -22,31 +27,50 @@ jobs:
     needs: [test]
 
     steps:
-      - name: check for EXPO_TOKEN
+      - name: 🔎 check for EXPO_TOKEN
         run: |
             if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
               echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets. Learn more: https://docs.expo.dev/eas-update/github-actions"
               exit 1
             fi
 
-      - name: checkout
+      - name: 📥 checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - name: setup node
+
+      - name: 🏗 setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version-file: 'package.json'
           cache: 'npm'
-      - run: npm ci --ignore-scripts
 
-      - name: setup expo
+      - name: 📦 create dependencies cache
+        uses: actions/cache@v3
+        id: npm-dep-cache
+        with:
+          path: node_modules
+          key:  ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+
+      - name: 📦 install dependencies
+        if: steps.npm-dep-cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: 🏗 setup expo
         uses: expo/expo-github-action@v7
         with:
           # WARNING: don't use latest version of expo or eas
-          expo-version: 6.1.0
+          eas-cache: true
           eas-version: 3.3.2
+          expo-cache: true
+          expo-version: 6.1.0
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: publish update
+      - name: 🚀 republish update
+        if: ${{ inputs.republish }}
+        run: |
+          eas update:republish --group='${{ inputs.republish }}' --message="$(git log -1 --format=%B)" --non-interactive
+
+      - name: 🚀 publish update
+        if: ${{ !inputs.republish }}
         run: eas update --auto --non-interactive

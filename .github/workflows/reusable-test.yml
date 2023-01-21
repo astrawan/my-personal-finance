@@ -9,36 +9,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: check for CODACY_PROJECT_TOKEN
+      - name: 🔎 check for CODACY_PROJECT_TOKEN
         run: |
             if [ -z "${{ secrets.CODACY_PROJECT_TOKEN }}" ]; then
               echo "You must provide an CODACY_PROJECT_TOKEN secret linked to this project. Learn more: https://docs.codacy.com/coverage-reporter/alternative-ways-of-running-coverage-reporter"
               exit 1
             fi
 
-      - name: checkout
+      - name: 📥 checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - name: setup node
+
+      - name: 🏗 setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version-file: 'package.json'
           cache: 'npm'
-      - run: npm ci --ignore-scripts
 
-      - name: setup expo
-        uses: expo/expo-github-action@v7
+      - name: 📦 create dependencies cache
+        uses: actions/cache@v3
+        id: npm-dep-cache
         with:
-          # WARNING: don't use latest version of expo or eas
-          expo-version: 6.1.0
-          eas-version: 3.3.2
-          token: ${{ secrets.EXPO_TOKEN }}
+          path: node_modules
+          key:  ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
 
-      - name: test
+      - name: 📦 install dependencies
+        if: steps.npm-dep-cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: 🏗 test
         run: npm test -- --coverage
 
-      - name: codacy coverage reporter
+      - name: 📝 codacy coverage reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
